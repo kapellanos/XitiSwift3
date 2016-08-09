@@ -32,16 +32,16 @@ SOFTWARE.
 
 import Foundation
 
-private let trueNumber = NSNumber(bool: true)
-private let falseNumber = NSNumber(bool: false)
-private let trueObjCType = String.fromCString(trueNumber.objCType)
-private let falseObjCType = String.fromCString(falseNumber.objCType)
+private let trueNumber = NSNumber(value: true)
+private let falseNumber = NSNumber(value: false)
+private let trueObjCType = String(cString: trueNumber.objCType)
+private let falseObjCType = String(cString: falseNumber.objCType)
 
 extension NSNumber {
     var isBool:Bool {
         get {
-            let objCType = String.fromCString(self.objCType)
-            if (self.compare(trueNumber) == NSComparisonResult.OrderedSame &&  objCType == trueObjCType) ||  (self.compare(falseNumber) == NSComparisonResult.OrderedSame && objCType == falseObjCType){
+            let objCType = String(cString: self.objCType)
+            if (self.compare(trueNumber) == ComparisonResult.orderedSame &&  objCType == trueObjCType) ||  (self.compare(falseNumber) == ComparisonResult.orderedSame && objCType == falseObjCType){
                 return true
             } else {
                 return false
@@ -57,7 +57,7 @@ public func ==(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) == NSComparisonResult.OrderedSame
+        return lhs.compare(rhs) == ComparisonResult.orderedSame
     }
 }
 
@@ -73,7 +73,7 @@ public func <(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) == NSComparisonResult.OrderedAscending
+        return lhs.compare(rhs) == ComparisonResult.orderedAscending
     }
 }
 
@@ -85,7 +85,7 @@ public func >(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) == NSComparisonResult.OrderedDescending
+        return lhs.compare(rhs) == ComparisonResult.orderedDescending
     }
 }
 
@@ -97,7 +97,7 @@ public func <=(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) != NSComparisonResult.OrderedDescending
+        return lhs.compare(rhs) != ComparisonResult.orderedDescending
     }
 }
 
@@ -109,6 +109,6 @@ public func >=(lhs: NSNumber, rhs: NSNumber) -> Bool {
     case (true, false):
         return false
     default:
-        return lhs.compare(rhs) != NSComparisonResult.OrderedAscending
+        return lhs.compare(rhs) != ComparisonResult.orderedAscending
     }
 }

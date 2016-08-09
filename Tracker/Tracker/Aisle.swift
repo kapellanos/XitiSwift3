@@ -103,7 +103,7 @@ public class Aisle: ScreenInfo {
         if(value != nil) {
             let encodeOption = ParamOption()
             encodeOption.encode = true
-            tracker.setParam("aisl", value: value!, options: encodeOption)
+            _ = tracker.setParam("aisl", value: value!, options: encodeOption)
         }
     }
 }
@@ -126,7 +126,7 @@ public class Aisles {
     - parameter level1: level1 label
     - returns: Aisle instance
     */
-    public func add(level1: String) -> Aisle {
+    public func add(_ level1: String) -> Aisle {
         let aisle = Aisle(tracker: tracker)
         aisle.level1 = level1
         
@@ -140,7 +140,7 @@ public class Aisles {
     - parameter level2: level2 label
     - returns: Aisle instance
     */
-    public func add(level1: String, level2: String) -> Aisle {
+    public func add(_ level1: String, level2: String) -> Aisle {
         let aisle = add(level1)
         aisle.level2 = level2
         
@@ -154,7 +154,7 @@ public class Aisles {
     - parameter level3: level3 label
     - returns: Aisle instance
     */
-    public func add(level1: String, level2: String, level3: String) -> Aisle {
+    public func add(_ level1: String, level2: String, level3: String) -> Aisle {
         let aisle = add(level1, level2: level2)
         aisle.level3 = level3
         
@@ -169,7 +169,7 @@ public class Aisles {
     - parameter level4: level4 label
     - returns: Aisle instance
     */
-    public func add(level1: String, level2: String, level3: String, level4: String) -> Aisle {
+    public func add(_ level1: String, level2: String, level3: String, level4: String) -> Aisle {
         let aisle = add(level1, level2: level1, level3: level3)
         aisle.level4 = level4
         
@@ -185,7 +185,7 @@ public class Aisles {
     - parameter level5: level5 label
     - returns: Aisle instance
     */
-    public func add(level1: String, level2: String, level3: String, level4: String, level5: String) -> Aisle {
+    public func add(_ level1: String, level2: String, level3: String, level4: String, level5: String) -> Aisle {
         let aisle = add(level1, level2: level1, level3: level3, level4: level4)
         aisle.level5 = level5
         
@@ -202,7 +202,7 @@ public class Aisles {
     - parameter level6: level6 label
     - returns: Aisle instance
     */
-    public func add(level1: String, level2: String, level3: String, level4: String, level5: String, level6: String) -> Aisle {
+    public func add(_ level1: String, level2: String, level3: String, level4: String, level5: String, level6: String) -> Aisle {
         let aisle = add(level1, level2: level1, level3: level3, level4: level4, level5: level5)
         aisle.level6 = level6
         
